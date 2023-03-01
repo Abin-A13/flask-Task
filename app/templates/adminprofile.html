@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block title %} Home Page {% endblock %} {% block
+    content%}
+    <h1>U are in {% if name %}{{name}}{% else %} logged as Admin {% endif %}</h1>
+    <table>
+        <tr>
+            <th>No:</th>
+            <th>username</th>
+            <th>email</th>
+        </tr>
+        <tbody>
+            {% for d in datas %}
+            <tr>
+               <td name="uid">{{d.id}}</td>
+               <td>{{d.username}}</td>
+               <td>{{d.email}}</td>
+                <td><button><a href={{url_for('user_delete',id=d.id)}}>Delete</a></button></td>
+                <td><button><a href={{url_for('user_update',id=d.id)}}>update</a></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}

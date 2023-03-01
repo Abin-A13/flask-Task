@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block title %} SignUp Page {% endblock %} {% block
+    content%}
+    <div class="login__page">
+      <form action="" method="post" >
+        {{form.hidden_tag()}}
+        <div class="inp">
+            <h1 style="color: red;">{% for err in error %}{{err}}{% endfor %}</h1>
+            <h1>{% if head %}{{head}}{% else %}Register{% endif %}</h1>
+            {{form.username.label()}}
+            {{form.username(class="form-control",placeholder="User name")}}
+            {{form.email.label()}}
+            {{form.email(class="form-control",placeholder="Enter Email address")}}
+            {{form.password1.label()}}
+            {{form.password1(class="form-control",placeholder="Enter password")}}
+            {{form.password2.label()}}
+            {{form.password2(class="form-control",placeholder="Enter confirm password")}}
+            {{form.submit(class="btn")}}
+        </div>
+        
+      </form>
+    </div>
+    {% endblock %}
