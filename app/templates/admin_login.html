@@ -1,0 +1,31 @@
+{% extends 'adminBase.html' %} 
+{% block title %} Admin Login Page {% endblock %}
+{% block content%}
+    
+    <div class="container">
+        <form action="" method="post">
+            {{form.hidden_tag()}}
+            <h1>Admin Login</h1>
+            <div class="row">
+                <div class="form_label">
+                    {{form.username.label()}}
+                </div>
+                <div class="form_input">
+                    {{form.username(class="form-control",placeholder="Username")}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form_label">
+                    {{form.password.label()}}
+                </div>
+                <div class="form_input">
+                    {{form.password(class="form-control",placeholder="password")}}
+                </div>
+                {{form.submit(class="btn")}}
+            </div>
+        </form>
+        <p>Register as Admin click <a href="{{url_for('admin_register')}}">here</a> </p>
+    </div>
+    
+    
+    {% endblock %}

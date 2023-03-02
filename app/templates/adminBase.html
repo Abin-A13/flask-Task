@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title> 
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="../static/main.css">
 </head>
 <body>
@@ -12,11 +12,11 @@
         <li><a href="{{url_for('home')}}" class="active">Home</a></li>
         <li><a href="">Add Company</a></li>
         {% if current_user.is_authenticated %}
-        <li><a href="{{url_for('profile')}}">Welcome, {{current_user.username}}</a></li>
+        <li><a href="{{url_for('user_add')}}">Add User</a></li>
+        <li><a href="{{url_for('admin_profile')}}">Welcome, {{current_user.username}}</a></li>
         <li><a href="{{url_for('logout_page')}}">logout</a></li>
         {% else %}
-        <li><a href="{{url_for('sign_up')}}">Add User</a></li>
-        <li><a href="{{url_for('login')}}">Login</a></li>
+        <li><a href="{{url_for('admin_login')}}">Login</a></li>
         {% endif %}
     </ul>
     {% include 'messages.html' %}

@@ -1,22 +1,27 @@
-{% extends 'base.html' %} {% block title %} Home Page {% endblock %} {% block
-    content%}
-    <h1>U are in {% if name %}{{name}}{% else %} logged as Admin {% endif %}</h1>
+{% extends 'adminBase.html' %}
+ {% block title %} Admin Profile {% endblock %}
+  {% block content%}
+<h1 style="text-align:center;color:#1622cc">Manage user</h1>
+<div class="container">
     <table>
         <tr>
             <th>No:</th>
             <th>username</th>
             <th>email</th>
+            <th>delete</th>
+            <th>update</th>
         </tr>
         <tbody>
             {% for d in datas %}
             <tr>
-               <td name="uid">{{d.id}}</td>
-               <td>{{d.username}}</td>
-               <td>{{d.email}}</td>
-                <td><button><a href={{url_for('user_delete',id=d.id)}}>Delete</a></button></td>
-                <td><button><a href={{url_for('user_update',id=d.id)}}>update</a></button></td>
+                <td name="uid">{{d.id}}</td>
+                <td>{{d.username}}</td>
+                <td>{{d.email}}</td>
+                <td><a href={{url_for('user_delete',id=d.id)}}><button>Delete</button></a></td>
+                <td><a href={{url_for('user_update',id=d.id)}}><button>update</button></a></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    {% endblock %}
+</div>
+{% endblock %}

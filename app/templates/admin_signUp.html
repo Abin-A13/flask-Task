@@ -1,0 +1,61 @@
+{% extends 'adminBase.html' %} 
+{% block title %} Admin SignUp {% endblock %} 
+{% block content%}
+    {% if error %}
+    <div class="alert">
+      <span class="clsbtn" onclick="this.parentElement.style.display='none'">&times;</span>
+      {% for err in error %}
+      {{err}}
+      {% endfor %}
+    </div>
+    {%else %}
+    {% endif %}
+    <div class="container">
+      <form action="" method="post">
+        {{form.hidden_tag()}}
+        <h1>Admin Register</h1>
+        <div class="row">
+          <div class="form_label">
+            {{form.username.label()}}
+          </div>
+          <div class="form_input">
+            {{form.username(class="form-control",placeholder="User name")}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="form_label">
+            {{form.email.label()}}
+          </div>
+          <div class="form_input">
+            {{form.email(class="form-control",placeholder="Enter Email address")}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="form_label">
+            {{form.password1.label()}}
+          </div>
+          <div class="form_input">
+            {{form.password1(class="form-control",placeholder="Enter password")}}
+          </div>
+        </div>
+        <div class="row">
+            <div class="form_label">
+              {{form.is_admin.label()}}
+            </div>
+            <div class="form_input">
+              {{form.is_admin(class="form-control")}}
+            </div>
+          </div>
+        <div class="row">
+          <div class="form_label">
+            {{form.password2.label()}}
+          </div>
+          <div class="form_input">
+            {{form.password2(class="form-control",placeholder="Enter confirm password")}}
+          </div>
+          {{form.submit(class="btn")}}
+        </div>
+      </form>
+    </div>
+
+    {% endblock %}

@@ -1,4 +1,49 @@
-{% extends 'base.html' %} {% block title %} Home Page {% endblock %} {% block
-    content%}
-    <h1>U are in {% if name %}{{name}}{% else %} logged {% endif %}</h1>
-    {% endblock %}
+{% extends 'base.html' %}
+{% block title %} Profile Page {% endblock %}
+{% block content%}
+<style>
+  #myDIV {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+  }
+</style>
+<div class="container">
+  <h1>Connect Zoom</h1>
+  {% if current_user %}
+  <a href={{url_for('create_meeting',id=current_user.id)}}><button class="profile_button">connect</button></a>
+  {% else %}
+  <a href={{url_for('create_meeting')}}><button class="profile_button">connect</button></a>
+  {% endif %}
+  <h1>Current Meetings :</h1>
+  {% if data %}
+  {% for d in data %}
+
+  <button class="view_btn" onclick="myFunction()">view meetings</button>
+
+  <div id="myDIV">
+    <p>Your meet id:{{d.id}}</p>
+    <p>Your time to start :{{d.start_time}}</p>
+    <p>Your topic :{{d.topic}}</p>
+    <p>Your topic :{{d.duration}}</p>
+    <a href="{{d.join_url}}" target="_blank"><button class="profile_button">join here</button></a>
+  </div>
+  {% endfor %}
+  {% else %}
+  <p style="text-align: center;">0</p>
+  {% endif %}
+</div>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
+{% endblock %}

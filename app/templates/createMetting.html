@@ -13,37 +13,37 @@
 <div class="container">
   <form action="" method="post">
     {{form.hidden_tag()}}
-    <h1>User Register</h1>
+    <h1>Create Meting</h1>
     <div class="row">
       <div class="form_label">
-        {{form.username.label()}}
+        {{form.topic.label()}}
       </div>
       <div class="form_input">
-        {{form.username(class="form-control",placeholder="User name")}}
+        {{form.topic(class="form-control",placeholder="topic for meet")}}
       </div>
     </div>
     <div class="row">
       <div class="form_label">
-        {{form.email.label()}}
+        {{form.duration.label()}}
       </div>
       <div class="form_input">
-        {{form.email(class="form-control",placeholder="Enter Email address")}}
+        {{form.duration(class="form-control")}}
       </div>
     </div>
     <div class="row">
       <div class="form_label">
-        {{form.password1.label()}}
+        {{form.start_time.label()}}
       </div>
       <div class="form_input">
-        {{form.password1(class="form-control",placeholder="Enter password")}}
+        {{form.start_time()}}
       </div>
     </div>
     <div class="row">
       <div class="form_label">
-        {{form.password2.label()}}
+        {{form.agenda.label()}}
       </div>
       <div class="form_input">
-        {{form.password2(class="form-control",placeholder="Enter confirm password")}}
+        {{form.agenda(class="form-control",placeholder="Enter agenda for meet")}}
       </div>
       {{form.submit(class="btn")}}
     </div>
